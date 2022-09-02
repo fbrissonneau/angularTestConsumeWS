@@ -69,6 +69,10 @@
             },
             "development": {
               "browserTarget": "testACLI:build:development"
+            },
+            "options": {
+              "browserTarget": "testACLI:build",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

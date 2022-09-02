@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 
 import {  throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
@@ -10,6 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
+
 
   private REST_API_SERVER = "http://10.137.200.5:8080/articles";
 
@@ -29,6 +30,8 @@ export class DataService {
   }
 
   public sendGetRequest(){
-    return this.httpClient.get<Article[]>(this.REST_API_SERVER).pipe(catchError(this.handleError));
+    return this.httpClient
+      .get<Article[]>(this.REST_API_SERVER)
+      .pipe(catchError(this.handleError));
   }
 }
